@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+//         Count the number of Duplicates
+
+// Write a function that will return the count of distinct case-insensitive alphabetic characters and numeric digits that occur more than once in the input string. The input string can be assumed to contain only alphabets (both uppercase and lowercase) and numeric digits.
+function duplicateCount(text) {
+    text = text.toLowerCase();
+    let count = {};
+    let duplicates = 0;
+
+    for (let char of text) {
+        if (count[char]) {
+            count[char]++;
+        } else {
+            count[char] = 1;
+        }
+    }
+
+    for (let key in count) {
+        if (count[key] > 1) {
+            duplicates++;
+        }
+    }
+
+    return duplicates;
+}
+console.log(duplicateCount("abcde"));  // Output: 0
+console.log(duplicateCount("aabbcde"));  // Output: 2
+console.log(duplicateCount("aabBcde"));  // Output: 2
+console.log(duplicateCount("indivisibility"));  // Output: 1
+console.log(duplicateCount("Indivisibilities"));  // Output: 2
+console.log(duplicateCount("aA11"));  // Output: 2
+console.log(duplicateCount("ABBA"));  // Output: 2
+
+// You are going to be given a non-empty string. Your job is to return the middle character(s) of the string.
+
+//     If the string's length is odd, return the middle character.
+//     If the string's length is even, return the middle 2 characters.
+function getMiddle(s) {
+    let middleIndex = Math.floor(s.length / 2);
+    
+    if (s.length % 2 === 0) {
+        return s.slice(middleIndex - 1, middleIndex + 1);
+    } else {
+        return s.slice(middleIndex, middleIndex + 1);
+    }
+}
+
+console.log(getMiddle("test"));  // Output: "es"
+console.log(getMiddle("testing"));  // Output: "t"
+console.log(getMiddle("middle"));  // Output: "dd"
+console.log(getMiddle("A"));  // Output: "A"
+
+// Write an algorithm that takes an array and moves all of the zeros to the end, preserving the order of the other elements.
+function moveZeros(arr) {
+    return arr.filter(x => x !== 0).concat(arr.filter(x => x === 0));
+}
+
+console.log(moveZeros([false,1,0,1,2,0,1,3,"a"])); 
+// Output: [false, 1, 1, 2, 1, 3, "a", 0, 0]
+
+// Given n, take the sum of the digits of n. If that value has more than one digit, continue reducing in this way until a single-digit number is produced. The input will be a non-negative integer.
+function digitalRoot(n) {
+    while (n > 9) {
+        n = n.toString().split('').reduce((a, b) => parseInt(a) + parseInt(b), 0);
+    }
+    return n;
+}
+
+console.log(digitalRoot(16));  // Output: 7
+console.log(digitalRoot(942));  // Output: 6
+console.log(digitalRoot(132189));  // Output: 6
+console.log(digitalRoot(493193));  // Output: 2
+
+// Given two arrays of strings a1 and a2 return a sorted array r in lexicographical order of the strings of a1 which are substrings of strings of a2.
+function inArray(a1, a2) {
+    return a1.filter(s1 => typeof s1 === 'string' && a2.some(s2 => s2.includes(s1))).sort();
+}
+
+console.log(inArray(["he", "ve", "omm", 1.9, "oint", "ple"], ["have", "somewhere", "answer", "Ruby", "I", "most", "I", "am", "sample", ";", "browse", "Ruby", "your", "opinion", "I", "input", "that", "have", "for", "would", "updated", "I", "does", "1.9?", "a", "not"]));
+
+// Your task is to construct a building which will be a pile of n cubes. The cube at the bottom will have a volume of n3 n^3 n3, the cube above will have volume of (n−1)3 (n-1)^3 (n−1)3 and so on until the top which will have a volume of 13 1^3 13.
+
+// You are given the total volume m of the building. Being given m can you find the number n of cubes you will have to build?
+
+// The parameter of the function findNb (find_nb, find-nb, findNb, ...) will be an integer m and you have to return the integer n such as n3+(n−1)3+(n−2)3+...+13=m n^3 + (n-1)^3 + (n-2)^3 + ... + 1^3 = m n3+(n−1)3+(n−2)3+...+13=m if such a n exists or -1 if there is no such n.
+// Examples:
+
+// findNb(1071225) --> 45
+
+// findNb(91716553919377) --> -1
+
+function findNb(m) {
+    let n = 0;
+    let sum = 0;
+    while (sum < m) {
+        n++;
+        sum += Math.pow(n, 3);
+    }
+    return sum === m ? n : -1
+}
+const { assert } = require('chai');
+
+it("Basic tests",function() {
+  assert.strictEqual(findNb(4183059834009), 2022)
+  assert.strictEqual(findNb(24723578342962), -1)
+  assert.strictEqual(findNb(135440716410000), 4824)
+  assert.strictEqual(findNb(40539911473216), 3568)
+})
+    </script>
+</body>
+</html>

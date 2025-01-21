@@ -1,0 +1,10 @@
+ALGORITHM multiple of three numbers
+VAR
+     num1, num2, num3 : INTEGER
+     multiply: INTEGER:=0;
+BEGIN
+    Read(num1)
+    Read(num2)
+    Read(num3)
+    multiply := num1 * num2 * num3
+END

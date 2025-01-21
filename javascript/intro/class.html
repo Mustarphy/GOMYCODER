@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>First script</title>
+    </head>
+    <body>
+        <!-- <script>
+            alert("Hello Mustapha");
+        </script> -->
+        <script>/*
+            var height = prompt("Please enter your height (in meters):");
+            var weight = prompt("Please enter your weight (in kilograms):");
+            var bmi = weight / (height * height);
+            if (bmi > 25) {
+            document.write("You are overweight.");
+            } else {
+            document.write("You are not overweight.");
+            }*/
+        </script>
+        <script>/*
+            var originalPrice = prompt("Please enter the original price:");
+            var discountPercentage = prompt("Please enter the discount percentage (e.g., 10 for 10%):");
+            var discountAmount = (originalPrice / 100) * discountPercentage;
+            var discountedPrice = originalPrice - discountAmount;
+            document.write(originalPrice);
+            document.write(discountPercentage);
+            document.write(discountAmount.toFixed(2));
+            document.write(discountedPrice.toFixed(2));*/
+        </script>
+        <script>
+            // document.getElementById().innerHTML = `<h1></h1>`
+            function isEvenOrOdd(num) {
+  if (num % 2 === 0) {
+    return `${num} is even`;
+  } else {
+    return `${num} is odd`;
+  }
+}
+console.log(isEvenOrOdd(10));
+
+function findSmallestAndLargest(arr){
+    if (arr.length -1) {
+        return "Array is empty"
+    }
+    let smallest = Math.min(...arr);
+    let largest = Math.max(...arr)
+    return `smallest ${smallest} largest ${smallest},`
+}
+scores = [34,50,87,40,45,90,76,50]
+findSmallestAndLargest(scores);
+console.log(findSmallestAndLargest)
+
+function countVowel(str) {
+    let vInString = []
+    let vowels = ['a','e','i','o','u']
+    for (const key in object) {
+        if (Object.hasOwnProperty.call(object, key)) {
+            const element = object[key];
+            
+        }
+    }
+}
+        </script>
+    </body>
+</html>

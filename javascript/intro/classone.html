@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function addTwoNumber(num1,num2){
+            var sum = num1 + num2
+        return  sum
+        }
+
+        function addNumber(num1,num2){
+            var pro = num1 * num2
+        return  pro
+        }
+       
+    </script>
+</head>
+<body>
+    <div id="bio"></div>
+    <section>
+        <h1>
+            age checker
+        </h1>
+        <input id="getAge" type="number" placeholder="enter your age" value="userAge">
+        <h2 id="display_age"></h2>
+        <button onclick="ageFunction()">click here</button>
+        <h2 id="ac"></h2>
+        <h2 id="ab"></h2>
+        <h2 id="add"></h2>
+        <h2 id="pro"></h2>
+        <h1 id="loop">Hello you</h1>
+        <main id="main"></main>
+    </section>
+    <script>
+        document.getElementById("bio").innerHTML= `<div><h1>My Bio</h1>
+            <p>My name is Mustapha Abdulazeez</p></div>`
+    </script>
+    <script>
+    function ageFunction(){
+        var age = document.getElementById("getAge").value
+    var result = age >=18 ? "you are an adult" : "you are not adult";
+    document.getElementById("display_age").textContent = result
+
+    }
+
+    var randNum = Math.random()*100
+    document.getElementById("ab").textContent =  randNum.toFixed(0)
+
+    var str = "hello word"
+    var firstName = str.split(" ")[1]
+    var secondName = str.split(" ")[0]
+    document.getElementById("ac").textContent =  firstName+" "+secondName
+
+    document.getElementById("add").textContent = addTwoNumber(10,9)
+    
+    document.getElementById("pro").textContent = addNumber(10,9)
+
+    var mainElem = document.getElementById("main");
+
+for(var a=1; a<=50; a++){
+    let newH1 = document.createElement('h1')
+    newH1.textContent = "I AM BLESS" + " " + a;
+
+    mainElem.appendChild(newH1)
+}
+
+    </script>
+
+</body>
+</html>

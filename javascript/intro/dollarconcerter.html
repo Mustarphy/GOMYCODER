@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Naira to Dollar Converter</title>
+</head>
+<body>
+  <h1 style="color: rgb(10, 26, 97);">Naira to Dollar Converter</h1>
+  <form>
+    <label for="naira">Naira (NGN):</label>
+    <input type="number" id="naira" placeholder="Enter Naira amount">
+    <button type="button" onclick="convertNairaToDollar()">Convert to Dollar</button>
+    <p id="dollar-result"></p>
+  </form>
+  <form>
+    <label for="dollar">Dollar (USD):</label>
+    <input type="number" id="dollar" placeholder="Enter Dollar amount">
+    <button type="button" onclick="convertDollarToNaira()">Convert to Naira</button>
+    <p id="naira-result"> </p>
+  </form>
+
+  <script>
+    // Function to convert Naira to Dollar
+    function convertNairaToDollar() {
+      const naira = document.getElementById('naira').value;
+      const exchangeRate = 760; // Please note that exchange rates may vary
+      const dollar = naira / exchangeRate;
+      document.getElementById('dollar-result').innerHTML = `Result: ${naira} NGN is equal to ${dollar.toFixed(2)} USD`;
+    }
+
+    // Function to convert Dollar to Naira
+    function convertDollarToNaira() {
+      const dollar = document.getElementById('dollar').value;
+      const exchangeRate = 760; // Please note that exchange rates may vary
+      const naira = dollar * exchangeRate;
+      document.getElementById('naira-result').innerHTML = `${dollar} USD is equal to ${naira.toFixed(2)} NGN`;
+    }
+  </script>
+</body>
+</html>
